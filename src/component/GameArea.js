@@ -3,6 +3,8 @@ import FailChance from './FailChance';
 import GameTopic from './GameTopic';
 import RemindingArea from './RemindingArea';
 import GameBoard from './GameBoard';
+import InputArea from './InputArea';
+import QuitButton from './QuitButton';
 
 function GameAera() {
   return (
@@ -28,6 +30,16 @@ function GameAera() {
       <div className="row mt-4">
         <div className="col-12 d-flex justify-content-center">
           <GameBoard />
+        </div>
+      </div>
+      <div className="row mt-4">
+        <div className="col-12 d-flex justify-content-center">
+          <InputArea />
+        </div>
+      </div>
+      <div className="row mt-1 mb-5">
+        <div className="col-12 d-flex justify-content-center">
+          <QuitButton />
         </div>
       </div>
     </div>

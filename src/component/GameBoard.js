@@ -3,6 +3,7 @@ import BoardGrid from "./BoardGrid";
 
 function GameBoard() {
   let boardSize = gc.difficulty_map[gc.userDifficulty];
+  boardSize = 10;
   document.documentElement.style.setProperty("--board-size", boardSize);
   let data = [];
   let board = [];
@@ -15,11 +16,9 @@ function GameBoard() {
     }
   }
 
-  console.log(data);
-  console.log(board);
   return (
     <div className="row">
-      <div className="col-11 m-auto">
+      <div className="col-11 m-auto board-area">
         {board}
       </div>
     </div>

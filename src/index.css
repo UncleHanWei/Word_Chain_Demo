@@ -33,6 +33,11 @@ body {
   font-size: 60px;
 }
 
+.board-area {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
 .board-grid {
   width: calc(100%/var(--board-size));
   aspect-ratio: 1/1;
