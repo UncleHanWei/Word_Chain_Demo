@@ -17,7 +17,7 @@ function Home() {
           </div>
           <div className="row mt-3">
             <div className="col-12">
-              <Link className="btn btn-success w-75" to={"/game"}>開始遊戲</Link>
+              <Link className="btn btn-success w-75" to={"/setting"}>開始遊戲</Link>
             </div>
           </div>
         </div>
