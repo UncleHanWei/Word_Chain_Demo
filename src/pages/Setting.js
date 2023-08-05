@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import GameConfig from "../GameConfig";
 
 const handleChange = event => {
-  console.log(event.target.value);
   GameConfig.userDifficulty = event.target.value
 };
 

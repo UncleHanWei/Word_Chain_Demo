@@ -10,12 +10,12 @@ function App() {
     <HashRouter>
       <div className='body bg-dark text-light text-center'>
         <Navbar />
-        <div className="container pt-5">
-          <div className="row mt-5">
+        <div className="container">
+          <div className="row mt-3">
             <div className="col-xl-6 m-auto">
 
               <Routes>
-                <Route path="/home" element={<Home />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/game" element={<Game />} />
                 <Route path="/setting" element={<Setting />} />
               </Routes>

@@ -11,7 +11,6 @@ function GameBoard(props) {
       board.push(<BoardGrid key={i} value="" />);
     }
   }
-  console.log('board', board);
   useEffect(() => {
     props.updateBoard(board)
   }, [props, board])

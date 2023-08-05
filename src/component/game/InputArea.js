@@ -1,5 +1,5 @@
 import { useRef, useContext } from 'react';
-import { TopicContex } from './GameArea'
+import { TopicContex, GameTargetContex } from './GameArea'
 
 import GameConfig from '../../GameConfig';
 import WordSource from "../../WordSource.json"
@@ -7,11 +7,17 @@ import WordSource from "../../WordSource.json"
 import BoardGrid from './BoardGrid';
 
 let boardIndex = 0;
+let allUserAns = [];
 
 function InputArea(props) {
   const inputRef = useRef(null);
   const topic = useContext(TopicContex)
+  const gameTarget = useContext(GameTargetContex)
 
+  if(gameTarget === 0) {
+    document.getElementById("gameover-btn").click();
+    return
+  }
 
   const updateMsg = (msg) => {
     GameConfig.remindingMSG = msg
@@ -46,7 +52,6 @@ function InputArea(props) {
 
   const checkInput = async () => {
     let userAns = inputRef.current.value;
-    console.log(userAns);
     if (userAns.length > 2) {
       updateMsg('字數不能大於 2')
       return
@@ -55,17 +60,24 @@ function InputArea(props) {
       updateMsg('字首與題目不同')
       return
     }
+    if(allUserAns.includes(userAns[1])) {
+      updateMsg('不能使用重複的字')
+      return
+    }
     let checkRes = await checkHasWord(userAns)
     if (!checkRes) {
       updateMsg('不在字詞列表中')
       return
     }
+
     updateMsg('')
     props.updateTopic(userAns[1]);
     props.board[boardIndex] = <BoardGrid key={boardIndex} value={userAns[1]} />
     props.updateBoard(props.board)
     boardIndex++;
     inputRef.current.value = userAns[1];
+    allUserAns.push(userAns[1])
+    props.updateGameTarget(gameTarget-1);
   }
 
   return (
