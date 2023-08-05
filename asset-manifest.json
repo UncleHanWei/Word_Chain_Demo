@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/word_chain_demo/static/css/main.5839eeea.css",
-    "main.js": "/word_chain_demo/static/js/main.007a6467.js",
-    "static/js/787.c18c1f51.chunk.js": "/word_chain_demo/static/js/787.c18c1f51.chunk.js",
-    "index.html": "/word_chain_demo/index.html",
-    "main.5839eeea.css.map": "/word_chain_demo/static/css/main.5839eeea.css.map",
-    "main.007a6467.js.map": "/word_chain_demo/static/js/main.007a6467.js.map",
-    "787.c18c1f51.chunk.js.map": "/word_chain_demo/static/js/787.c18c1f51.chunk.js.map"
+    "main.css": "/Word_Chain_Demo/static/css/main.5839eeea.css",
+    "main.js": "/Word_Chain_Demo/static/js/main.7428cbf4.js",
+    "static/js/787.c18c1f51.chunk.js": "/Word_Chain_Demo/static/js/787.c18c1f51.chunk.js",
+    "index.html": "/Word_Chain_Demo/index.html",
+    "main.5839eeea.css.map": "/Word_Chain_Demo/static/css/main.5839eeea.css.map",
+    "main.7428cbf4.js.map": "/Word_Chain_Demo/static/js/main.7428cbf4.js.map",
+    "787.c18c1f51.chunk.js.map": "/Word_Chain_Demo/static/js/787.c18c1f51.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5839eeea.css",
-    "static/js/main.007a6467.js"
+    "static/js/main.7428cbf4.js"
   ]
 }
