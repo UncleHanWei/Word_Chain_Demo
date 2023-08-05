@@ -67,10 +67,10 @@ body {
 .board-grid {
   width: calc(100%/var(--board-size));
   aspect-ratio: 1/1;
-  box-sizing: border-box;
   float: left;
   padding: 5px;
   background-color: #f5f0d8;
   border: 1px solid #FFFFFF;
-  /* overflow: auto; */
+  color: #555;
+  font-size: 60px;
 }

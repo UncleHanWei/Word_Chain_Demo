@@ -1,6 +1,8 @@
-function BoardGrid() {
+function BoardGrid(props) {
   return (
-    <span className="board-grid"></span>
+    <div className="board-grid d-flex justify-content-center">
+      <span className="align-self-center">{props.value}</span>
+    </div>
   );
 }
 
