@@ -51,7 +51,7 @@ function InputArea(props) {
   }
 
   const checkInput = async (event) => {
-    if(event.keyCode !== 13) {
+    if(event.type === "keydown" && event.keyCode !== 13) {
       return
     }
     let userAns = inputRef.current.value;
