@@ -73,4 +73,5 @@ body {
   border: 1px solid #FFFFFF;
   color: #555;
   font-size: 60px;
+  overflow: hidden;
 }

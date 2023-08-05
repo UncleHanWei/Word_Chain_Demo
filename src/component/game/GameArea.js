@@ -1,8 +1,8 @@
 import { useMemo, createContext, useState } from 'react';
 import GameConfig from '../../GameConfig';
 
-import Timer from './Timer';
-import FailChance from './FailChance';
+// import Timer from './Timer';
+// import FailChance from './FailChance';
 import GameTopic from './GameTopic';
 import RemindingArea from './RemindingArea';
 import GameBoard from './GameBoard';

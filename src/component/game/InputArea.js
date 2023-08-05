@@ -50,10 +50,13 @@ function InputArea(props) {
     return false
   }
 
-  const checkInput = async () => {
+  const checkInput = async (event) => {
+    if(event.keyCode !== 13) {
+      return
+    }
     let userAns = inputRef.current.value;
-    if (userAns.length > 2) {
-      updateMsg('字數不能大於 2')
+    if (userAns.length !== 2) {
+      updateMsg('字數必須等於 2')
       return
     }
     if (userAns[0] !== topic[0]) {
@@ -82,7 +85,7 @@ function InputArea(props) {
 
   return (
     <div className="input-group mb-3 w-75">
-      <input ref={inputRef} type="text" className="form-control" />
+      <input ref={inputRef} type="text" className="form-control" onKeyDown={checkInput} />
       <button className="btn btn-secondary" type="button" id="button-addon2" onClick={checkInput}>確認</button>
     </div>
   );
