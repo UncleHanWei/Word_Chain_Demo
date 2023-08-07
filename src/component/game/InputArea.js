@@ -6,13 +6,13 @@ import WordSource from "../../WordSource.json"
 
 import BoardGrid from './BoardGrid';
 
-let boardIndex = 0;
-let allUserAns = [];
 
 function InputArea(props) {
   const inputRef = useRef(null);
   const topic = useContext(TopicContex)
   const gameTarget = useContext(GameTargetContex)
+  let boardIndex = props.boardIndex;
+  let allUserAns = props.allUserAns;
 
   if(gameTarget === 0) {
     document.getElementById("gameover-btn").click();
@@ -81,6 +81,9 @@ function InputArea(props) {
     inputRef.current.value = userAns[1];
     allUserAns.push(userAns[1])
     props.updateGameTarget(gameTarget-1);
+    // 更新使用者的輸入的狀態
+    props.updateBoardIndex(boardIndex);
+    props.updateAllUserAns(allUserAns);
   }
 
   return (

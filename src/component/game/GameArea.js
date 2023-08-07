@@ -23,6 +23,8 @@ function GameAera() {
   const [board, updateBoard] = useState([]);
   let boardSize = GameConfig.difficulty_map[GameConfig.userDifficulty];
   const [gameTarget, updateGameTarget] = useState(boardSize * boardSize);
+  const [boardIndex, updateBoardIndex] = useState(0);
+  const [allUserAns, updateAllUserAns] = useState([]);
 
   return (
     <GameTargetContex.Provider value={gameTarget}>
@@ -56,10 +58,12 @@ function GameAera() {
             <div className="row mt-4">
               <div className="col-12 d-flex justify-content-center">
                 <InputArea
+                  boardIndex={boardIndex} updateBoardIndex={updateBoardIndex}
+                  allUserAns={allUserAns} updateAllUserAns={updateAllUserAns}
                   updateMsg={getMsg} updateTopic={updateTopic}
-                  board={board} updateBoard={updateBoard} 
+                  board={board} updateBoard={updateBoard}
                   updateGameTarget={updateGameTarget}
-                  />
+                />
               </div>
             </div>
             <div className="row mt-1 mb-5">
