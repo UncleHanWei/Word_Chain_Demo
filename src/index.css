@@ -72,6 +72,6 @@ body {
   background-color: #f5f0d8;
   border: 1px solid #FFFFFF;
   color: #555;
-  font-size: 60px;
+  font-size: clamp(0.8em, 5vw, 1.8em);
   overflow: hidden;
 }
