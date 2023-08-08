@@ -1,4 +1,4 @@
-import { useMemo, createContext, useState } from 'react';
+import { createContext, useState } from 'react';
 import GameConfig from '../../GameConfig';
 
 // import Timer from './Timer';
@@ -17,9 +17,8 @@ export const TopicContex = createContext(null);
 export const GameTargetContex = createContext(null);
 
 function GameAera() {
-  const [msg, getMsg] = useState(GameConfig.remindingMSG);
-  const [topic, updateTopic] = useState(GameConfig.topic);
-  const gameTopic = useMemo(() => <GameTopic updateTopic={updateTopic} topic={topic} />, [topic]);
+  const [msg, getMsg] = useState("");
+  const [topic, updateTopic] = useState("");
   const [board, updateBoard] = useState([]);
   let boardSize = GameConfig.difficulty_map[GameConfig.userDifficulty];
   const [gameTarget, updateGameTarget] = useState(boardSize * boardSize);
@@ -42,7 +41,7 @@ function GameAera() {
             </div>
             <div className="row mt-4">
               <div className="col-12 d-flex justify-content-center">
-                {gameTopic}
+              <GameTopic updateTopic={updateTopic} topic={topic} />
               </div>
             </div>
             <div className="row mt-4">
