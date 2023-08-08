@@ -1,5 +1,5 @@
-import { useRef, useContext } from 'react';
-import { TopicContex, GameTargetContex } from './GameArea'
+import { useRef, useContext, useEffect } from 'react';
+import { TopicContex, GameTargetContex, GameStateContex } from './GameArea'
 
 import GameConfig from '../../GameConfig';
 import WordSource from "../../WordSource.json"
@@ -11,11 +11,18 @@ function InputArea(props) {
   const inputRef = useRef(null);
   const topic = useContext(TopicContex)
   const gameTarget = useContext(GameTargetContex)
+  const gameState = useContext(GameStateContex);
   let boardIndex = props.boardIndex;
   let allUserAns = props.allUserAns;
 
-  if(gameTarget === 0) {
-    document.getElementById("gameover-btn").click();
+  useEffect(() => {
+    if(gameTarget === 0 || !gameState) {
+      props.updateGameState(false);
+      document.getElementById("gameover-btn").click();
+    }
+  }, [gameTarget, props, gameState])
+  
+  if(gameTarget === 0 || !gameState) {
     return
   }
 
