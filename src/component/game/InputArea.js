@@ -16,13 +16,13 @@ function InputArea(props) {
   let allUserAns = props.allUserAns;
 
   useEffect(() => {
-    if(gameTarget === 0 || !gameState) {
+    if (gameTarget === 0 || !gameState) {
       props.updateGameState(false);
       document.getElementById("gameover-btn").click();
     }
   }, [gameTarget, props, gameState])
-  
-  if(gameTarget === 0 || !gameState) {
+
+  if (gameTarget === 0 || !gameState) {
     return
   }
 
@@ -58,36 +58,32 @@ function InputArea(props) {
   }
 
   const checkInput = async (event) => {
-    if(event.type === "keydown" && event.keyCode !== 13) {
+    if (event.type === "keydown" && event.keyCode !== 13) {
       return
     }
     let userAns = inputRef.current.value;
-    if (userAns.length !== 2) {
-      updateMsg('字數必須等於 2')
+    if (userAns.length !== 1) {
+      updateMsg('只能輸入一個字')
       return
     }
-    if (userAns[0] !== topic[0]) {
-      updateMsg('字首與題目不同')
-      return
-    }
-    if(allUserAns.includes(userAns[1])) {
+    if (allUserAns.includes(userAns)) {
       updateMsg('不能使用重複的字')
       return
     }
-    let checkRes = await checkHasWord(userAns)
+    let checkRes = await checkHasWord(`${topic+userAns}`)
     if (!checkRes) {
       updateMsg('不在字詞列表中')
       return
     }
 
     updateMsg('')
-    props.updateTopic(userAns[1]);
-    props.board[boardIndex] = <BoardGrid key={boardIndex} value={userAns[1]} />
+    props.updateTopic(userAns);
+    props.board[boardIndex] = <BoardGrid key={boardIndex} value={userAns} />
     props.updateBoard(props.board)
     boardIndex++;
-    inputRef.current.value = userAns[1];
-    allUserAns.push(userAns[1])
-    props.updateGameTarget(gameTarget-1);
+    inputRef.current.value = '';
+    allUserAns.push(userAns)
+    props.updateGameTarget(gameTarget - 1);
     // 更新使用者的輸入的狀態
     props.updateBoardIndex(boardIndex);
     props.updateAllUserAns(allUserAns);
@@ -95,7 +91,8 @@ function InputArea(props) {
 
   return (
     <div className="input-group mb-3 w-75">
-      <input ref={inputRef} type="text" className="form-control" onKeyDown={checkInput} />
+      <span className="input-group-text" id="inputGroup-sizing-default">{topic}</span>
+      <input ref={inputRef} type="text" className="form-control" onKeyDown={checkInput} onBlur={e => e.target.focus()} />
       <button className="btn btn-secondary" type="button" id="button-addon2" onClick={checkInput}>確認</button>
     </div>
   );
