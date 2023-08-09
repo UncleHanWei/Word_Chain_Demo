@@ -28,7 +28,7 @@ function GameOver(props) {
               {(Math.floor((timeCtx / 60)) % 60).toString().padStart(2, "0")}:
               {(Math.floor((timeCtx % 60))).toString().padStart(2, "0")}
               <br />
-              用字量 {props.userAnsCount}
+              完成字數 {props.userAnsCount}
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
