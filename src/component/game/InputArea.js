@@ -78,9 +78,10 @@ function InputArea(props) {
 
     updateMsg('')
     props.updateTopic(userAns);
-    props.board[boardIndex] = <BoardGrid key={boardIndex} value={userAns} />
+    props.board[boardIndex] = <BoardGrid class={""} key={boardIndex} value={userAns} />
     props.updateBoard(props.board)
     boardIndex++;
+    props.board[boardIndex] = <BoardGrid class={"border-5 border-secondary-subtle"} key={boardIndex} />
     inputRef.current.value = '';
     allUserAns.push(userAns)
     props.updateGameTarget(gameTarget - 1);

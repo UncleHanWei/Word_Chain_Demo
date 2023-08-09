@@ -7,7 +7,8 @@ function GameBoard(props) {
   if (board.length === 0) {
     let boardSize = gc.difficulty_map[gc.userDifficulty];
     document.documentElement.style.setProperty("--board-size", boardSize);
-    for (let i = 0; i < boardSize*boardSize; i++) {
+    board.push(<BoardGrid key={0} value="" class={"border-5 border-secondary-subtle"} />);
+    for (let i = 1; i < boardSize*boardSize; i++) {
       board.push(<BoardGrid key={i} value="" />);
     }
   }
