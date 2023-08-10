@@ -16,13 +16,13 @@ function InputArea(props) {
   let allUserAns = props.allUserAns;
 
   useEffect(() => {
-    if (gameTarget === 0 || !gameState) {
+    if (boardIndex === gameTarget || !gameState) {
       props.updateGameState(false);
       document.getElementById("gameover-btn").click();
     }
-  }, [gameTarget, props, gameState])
+  }, [gameTarget, props, gameState, boardIndex])
 
-  if (gameTarget === 0 || !gameState) {
+  if (boardIndex === gameTarget || !gameState) {
     return
   }
 
@@ -81,10 +81,12 @@ function InputArea(props) {
     props.board[boardIndex] = <BoardGrid class={""} key={boardIndex} value={userAns} />
     props.updateBoard(props.board)
     boardIndex++;
-    props.board[boardIndex] = <BoardGrid class={"border-5 border-secondary-subtle"} key={boardIndex} />
+    if(!(boardIndex === gameTarget)) {
+      props.board[boardIndex] = <BoardGrid class={"border-5 border-secondary-subtle"} key={boardIndex} />
+    }
     inputRef.current.value = '';
     allUserAns.push(userAns)
-    props.updateGameTarget(gameTarget - 1);
+ 
     // 更新使用者的輸入的狀態
     props.updateBoardIndex(boardIndex);
     props.updateAllUserAns(allUserAns);
