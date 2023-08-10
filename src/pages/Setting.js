@@ -3,10 +3,12 @@ import GameConfig from "../GameConfig";
 
 const handleChange = event => {
   GameConfig.userDifficulty = event.target.value
+  window.localStorage.setItem("difficulty", event.target.value);
 };
 
 
 function Setting() {
+  const difficulty = window.localStorage.getItem("difficulty") || "Easy";
   return (
     <div>
       <div className="row">
@@ -45,7 +47,7 @@ function Setting() {
 
               <div className="input-group mb-3">
                 <label className="input-group-text" htmlFor="difficulty">遊戲難度</label>
-                <select className="form-select" id="difficulty" onChange={handleChange} defaultValue={GameConfig.userDifficulty}>
+                <select className="form-select" id="difficulty" onChange={handleChange} defaultValue={difficulty}>
                   <option value={"Easy"} >Easy</option>
                   <option value={"Normal"}>Normal</option>
                   <option value={"Hard"}>Hard</option>

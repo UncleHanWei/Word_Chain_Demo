@@ -22,7 +22,8 @@ function GameAera() {
   const [msg, getMsg] = useState("");
   const [topic, updateTopic] = useState("");
   const [board, updateBoard] = useState([]);
-  let boardSize = GameConfig.difficulty_map[GameConfig.userDifficulty];
+  const difficulty = window.localStorage.getItem("difficulty") || "Easy";
+  let boardSize = GameConfig.difficulty_map[difficulty];
   const [gameTarget, updateGameTarget] = useState(boardSize * boardSize);
   const [boardIndex, updateBoardIndex] = useState(0);
   const [allUserAns, updateAllUserAns] = useState([]);

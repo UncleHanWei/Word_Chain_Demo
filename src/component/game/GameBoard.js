@@ -5,10 +5,11 @@ import BoardGrid from "./BoardGrid";
 function GameBoard(props) {
   let board = props.board;
   if (board.length === 0) {
-    let boardSize = gc.difficulty_map[gc.userDifficulty];
+    const difficulty = window.localStorage.getItem("difficulty") || "Easy";
+    let boardSize = gc.difficulty_map[difficulty];
     document.documentElement.style.setProperty("--board-size", boardSize);
     board.push(<BoardGrid key={0} value="" class={"border-5 border-secondary-subtle"} />);
-    for (let i = 1; i < boardSize*boardSize; i++) {
+    for (let i = 1; i < boardSize * boardSize; i++) {
       board.push(<BoardGrid key={i} value="" />);
     }
   }
