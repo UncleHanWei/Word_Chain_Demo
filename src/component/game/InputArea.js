@@ -62,6 +62,7 @@ function InputArea(props) {
       return
     }
     let userAns = inputRef.current.value;
+    let checkRes = await checkHasWord(`${topic+userAns}`)
     if (userAns.length !== 1) {
       updateMsg('只能輸入一個字')
       return
@@ -70,7 +71,6 @@ function InputArea(props) {
       updateMsg('不能使用重複的字')
       return
     }
-    let checkRes = await checkHasWord(`${topic+userAns}`)
     if (!checkRes) {
       updateMsg('不在字詞列表中')
       return
